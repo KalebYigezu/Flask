@@ -164,6 +164,7 @@ app.run()
 </head>
 <body>
      <h1> {% block heading %}{% endblock %} </h1>
+          <h2>Welcome</h2>
      {% block body %}
      {% endblock %}
 </body>
