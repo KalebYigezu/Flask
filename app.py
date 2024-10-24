@@ -62,6 +62,38 @@ def bye():
 
 app.run()
 
+-------------------------------------------------
+     Is it New Year app
+
+import datetime
+from flask import Flask, render_template
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    now = datetime.datetime.now()
+    newyear = now.month == 1 and now.day == 1
+    return render_template("index.html", newyear=newyear)
+
+app.run()
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Website</title>
+</head>
+<body>
+{% if newyear %}
+     <h1> It is {{ newyear }} it is a New Year</h1>
+{% else %}
+     <h1> It is not new year</h1>
+{% endif %}
+</body>
+</html>
+ ---------------------------------------------
+
+
+
 
 
 
