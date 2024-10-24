@@ -51,6 +51,8 @@ app = Flask(__name__)
 def index():
     headline = "Hello World from app!"
     return render_template("index.html", headline=headline)
+    # html will take the headline variable in its {{ }} which
+    # is it's Jinja2 templating language
 
 app.run()
 
