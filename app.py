@@ -91,7 +91,52 @@ app.run()
 </body>
 </html>
  ---------------------------------------------
+       Using url
 
+ import datetime
+from flask import Flask, render_template
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return render_template("index.html")
+
+
+@app.route('/more')
+def more():
+    return render_template("more.html")
+
+app.run()
+
+#index.html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Website</title>
+</head>
+<body>
+     <h1> First Page</h1>
+    <p>I love Kitfo. I love Misir. I love Dinich. I love Kitfo. I love Misir.
+        I love Dinich. I love Kitfo. I love Misir. I love Dinich.I love Kitfo.
+        I love Misir. I love Dinich. I love Kitfo. I love Misir. I love Dinich.  </p>
+<a href="{{ url_for('more') }}">Go to second page</a>
+</body>
+</html>
+
+#more.html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Website</title>
+</head>
+<body>
+     <h1> Second Page</h1>
+    <p>I love Kitfo. I love Misir. I love Dinich. I love Kitfo. I love Misir.
+        I love Dinich. I love Kitfo. I love Misir. I love Dinich.I love Kitfo.
+        I love Misir. I love Dinich. I love Kitfo. I love Misir. I love Dinich.  </p>
+<a href="{{ url_for('index') }}">Go to first page</a>
+</body>
+</html>
 
 
 
