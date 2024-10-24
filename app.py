@@ -41,4 +41,21 @@ def index():
 
 app.run()
 
+--------------------------------------------
+        Advance
+
+from flask import Flask, render_template
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    headline = "Hello World from app!"
+    return render_template("index.html", headline=headline)
+
+app.run()
+
+
+
+
+
 
