@@ -45,16 +45,24 @@ app.run()
         Advance
 
 from flask import Flask, render_template
+
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    headline = "Hello World from app!"
+    headline = "Hello"
     return render_template("index.html", headline=headline)
     # html will take the headline variable in its {{ }} which
     # is it's Jinja2 templating language
 
+@app.route('/bye')
+def bye():
+    headline = "Bye!"
+    return render_template("index.html", headline=headline)
+
 app.run()
+
+
 
 
 
