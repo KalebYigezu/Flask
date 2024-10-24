@@ -137,7 +137,71 @@ app.run()
 <a href="{{ url_for('index') }}">Go to first page</a>
 </body>
 </html>
+-----------------------------------------------------------------------------------
+             Using Layout
 
+import datetime
+from flask import Flask, render_template
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return render_template("index.html")
+
+
+@app.route('/more')
+def more():
+    return render_template("more.html")
+
+
+app.run()
+
+#layout.html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Website</title>
+</head>
+<body>
+     <h1> {% block heading %}{% endblock %} </h1>
+     {% block body %}
+     {% endblock %}
+</body>
+</html>
+
+ #index.html
+ {% extends "layout.html" %}
+
+{% block heading %}
+     First Page
+{% endblock %}
+
+{% block body %}
+    <p>I love Kitfo. I love Misir. I love Dinich. I love Kitfo. I love Misir.
+        I love Dinich. I love Kitfo. I love Misir. I love Dinich.I love Kitfo.
+        I love Misir. I love Dinich. I love Kitfo. I love Misir. I love Dinich.  </p>
+
+<a href="{{ url_for('more') }}">Go to second page</a>
+
+
+{% endblock %}
+
+#more
+{% extends "layout.html" %}
+
+{% block heading %}
+     Second Page
+{% endblock %}
+
+{% block body %}
+    <p>I love Kitfo. I love Misir. I love Dinich. I love Kitfo. I love Misir.
+        I love Dinich. I love Kitfo. I love Misir. I love Dinich.I love Kitfo.
+        I love Misir. I love Dinich. I love Kitfo. I love Misir. I love Dinich.  </p>
+
+<a href="{{ url_for('index') }}">Go to first page</a>
+
+
+{% endblock %}
 
 
 
